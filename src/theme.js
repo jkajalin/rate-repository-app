@@ -18,6 +18,70 @@ const theme = {
     normal: '400',
     bold: '700',
   },
+  avatarImg: {
+    width: '50',
+    height: '50',
+  },
+  numerals: {
+    display: 'flex',
+    flexDirection: 'row',
+    //flexWrap: "wrap",
+    //backgroundColor: "oldlace",    
+    //border: 'solid',
+    flexBasis: 50,
+    //padding: 10,
+    marginTop: 20,
+  },
+  nmrlItem: {
+    display: 'flex',
+    flexDirection: 'column',
+    //backgroundColor: "coral",    
+    //flexBasis: 50,
+    //border: 'solid',
+    fontSize: 28,
+    fontWeight: 'bold',
+    padding: 8,
+    color: '#586069',
+    //overFlow: 'hidden',     
+  },
+  rounded: {
+    display: 'flex',
+    //backgroundColor: "yellow",
+    justifyContent: 'center',
+    minWidth: 0,
+    color: '#24292e',
+    //flexDirection: 'column', 
+  },
+  flexTitle: {
+    display: 'flex',
+    //alignItems: 'flex-end',
+    flexWrap: 'wrap',
+  },
+  titleMain: {
+    flexGrow: 1,
+    fontSize: 32,
+    fontWeight: 'bold',
+  },
+  titleNote: {
+    color: '#586069',
+    fontSize: 16,
+  },
+  itemBasics: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: "wrap",
+    //flexGrow: 0,    
+  },
+  languageBox:  {
+    backgroundColor: "dodgerblue",
+    marginTop: 10,
+    padding: 7,
+    borderRadius: 8,
+    //flexGrow: 0, // tavoitellaan että objekti ei veisi tilaa enempää kuin tarvitsee. faail
+    alignSelf: 'flex-start', // defines box to take only neede space    
+    fontWeight: 'bold',
+    color: 'white',
+  }
 };
 
 export default theme;
