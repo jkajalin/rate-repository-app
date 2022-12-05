@@ -2,7 +2,7 @@ import { Image, Text, View, StyleSheet }from 'react-native';
 import theme from '../theme';
 import NumeralListItem from './NumeralListItem';
 
-
+// most styling defined in theme.js
 const styles = StyleSheet.create({
   reposListItem: {
     display: 'flex',

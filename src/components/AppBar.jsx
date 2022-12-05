@@ -1,7 +1,8 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
 import Heading from './Heading';
 import AppBarTab from './AppBarTab';
+import { Link } from "react-router-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -12,15 +13,19 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     height: 80,
     alignItems: 'flex-end',
-    // ...
+    
   },
-  // ...
+  
 });
 
 const AppBar = () => {
   return <View style={styles.container} >
-    {/* ... */}    
-    <AppBarTab><Heading color="appBarText">Repositories</Heading></AppBarTab>
+    {/* ... */}
+      <ScrollView horizontal>
+        <AppBarTab><Link to="/"><Heading color="appBarText">Repositories </Heading></Link></AppBarTab>    
+        <AppBarTab><Link to="/sign-in"><Heading color="appBarText">Sign in</Heading></Link></AppBarTab>
+        
+      </ScrollView>
     </View>;
 };
 
