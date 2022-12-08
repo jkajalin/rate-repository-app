@@ -81,7 +81,34 @@ const theme = {
     alignSelf: 'flex-start', // defines box to take only neede space    
     fontWeight: 'bold',
     color: 'white',
-  }
+  },
+  signInView: { 
+    display: 'flex',
+    backgroundColor: '#fff', 
+    padding: 10,
+  },
+  textInputBox: {
+    display: 'flex',
+    padding: 7,
+    backgroundColor: 'white',
+    border: 'solid',
+    borderWidth: 1,
+    borderRadius: 4,
+    borderColor: '#586069',
+    marginTop: 10,
+  },
+  buttonBox: {
+    display: 'flex',
+    padding: 7,
+    backgroundColor: "dodgerblue",
+    borderRadius: 4,    
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  buttonText: {
+    fontWeight: 'bold',
+    color: 'white',
+  } 
 };
 
 export default theme;
