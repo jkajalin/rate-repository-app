@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     display: 'flex',    
     flexDirection: 'row',
     flexWrap: 'wrap',
-    height: 80,
+    height:100,
     alignItems: 'flex-end',
     
   },

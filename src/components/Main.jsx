@@ -7,6 +7,8 @@ import SubHeading from './Subheading';
 // eslint-disable-next-line no-unused-vars
 import Text from './Text';
 import SignIn from './SignIn';
+// eslint-disable-next-line no-unused-vars
+import Br from './Br';
 
 const styles = StyleSheet.create({
   container: {
@@ -20,8 +22,7 @@ const styles = StyleSheet.create({
 
 const Main = () => {
   return (
-    <>
-    
+    <>    
     <AppBar />
     <View style={styles.container}>      
               
@@ -29,8 +30,7 @@ const Main = () => {
         <Route path="/" element={<RepositoryList />} exact />
         <Route path="/sign-in" element={<SignIn />} exact />
         <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-      <br /><br />
+      </Routes>      
       
     </View>
 
