@@ -4,7 +4,13 @@ import { Button, Pressable, View } from 'react-native';
 import FormikTextInput from './FormikTextInput';
 import { Formik } from 'formik';
 import Text from './Text';
+import * as yup from 'yup';
 import theme from '../theme';
+
+const validationSchema = yup.object().shape({
+  username: yup.string().required('Username is required'),
+  pswd: yup.string().required('Password is required'),
+});
 
 
 // eslint-disable-next-line no-unused-vars
@@ -12,6 +18,7 @@ const LoginForm = props => (
   <Formik
     initialValues={{ username: '', pswd: '' }}
     onSubmit={values => console.log(values)}
+    validationSchema={ validationSchema }
   >
     {/* eslint-disable-next-line no-unused-vars */}
     {({ handleChange, handleBlur, handleSubmit, values }) => (

@@ -1,6 +1,7 @@
-import { Image, Text, View, StyleSheet }from 'react-native';
+import { Image, View, Text, StyleSheet }from 'react-native';
 import theme from '../theme';
 import NumeralListItem from './NumeralListItem';
+//import Text from './Text';
 
 // most styling defined in theme.js
 const styles = StyleSheet.create({
@@ -11,6 +12,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     padding: 10,
     paddingTop: 10,
+    //height: '100%',
   },
 });
 

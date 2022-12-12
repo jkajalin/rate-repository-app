@@ -5,6 +5,8 @@ const theme = {
     primary: '#0366d6',
     appBar: '#24292e',
     appBarText: '#fff',
+    errorText: '#d73a4a',
+    borderColor: '#586069',
   },
   fontSizes: {
     body: 14,
@@ -13,6 +15,8 @@ const theme = {
   },
   fonts: {
     main: 'System',
+    android: 'Roboto',
+    ios: 'Arial',
   },
   fontWeights: {
     normal: '400',
@@ -38,7 +42,7 @@ const theme = {
   },
   nmrlItem: {
     display: 'flex',
-    flexDirection: 'column',    
+    flexDirection: 'column',   
     fontSize: 19,
     fontWeight: 'bold',
     padding: 8,
@@ -67,8 +71,15 @@ const theme = {
     fontWeight: 'bold',
   },
   titleNote: {
+    //display: 'flex',
+    //flex: 1,
     color: '#586069',
     fontSize: 16,
+    //flexWrap: 'wrap',    
+    //paddingRight: 15,
+    //marginRight: 15,
+    //with: '100%',
+    //minWith: 0,      
   },
   itemBasics: {
     display: 'flex',
@@ -94,11 +105,11 @@ const theme = {
   textInputBox: {
     display: 'flex',
     padding: 7,
-    backgroundColor: 'white',
-    border: 'solid',
-    borderWidth: 1,
-    borderRadius: 4,
-    borderColor: '#586069',
+    //backgroundColor: 'white',
+    //border: 'solid',
+    //borderWidth: 1,
+    //borderRadius: 4,
+    //borderColor: '#586069',
     marginTop: 10,
   },
   buttonBox: {

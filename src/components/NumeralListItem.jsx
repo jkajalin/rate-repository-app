@@ -1,4 +1,5 @@
 import { Text } from "react-native";
+//import Text from './Text';
 import theme from '../theme';
 
 const roundedNumber = ( number ) => {
