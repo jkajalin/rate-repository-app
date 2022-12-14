@@ -64,6 +64,7 @@ const theme = {
   flexTitle: {
     display: 'flex',
     flexWrap: 'wrap',
+    flexShrink: 1,
   },
   titleMain: {
     flexGrow: 1,
@@ -71,21 +72,21 @@ const theme = {
     fontWeight: 'bold',
   },
   titleNote: {
-    //display: 'flex',
-    //flex: 1,
+    display: 'flex',    
     color: '#586069',
-    fontSize: 16,
-    //flexWrap: 'wrap',    
-    //paddingRight: 15,
-    //marginRight: 15,
-    //with: '100%',
-    //minWith: 0,      
+    fontSize: 16,    
+    flexWrap: 'wrap',
+    flexShrink: 1,
+    flexGrow: 1,
+    //width: '90%',
+    //padding: 5,     
   },
   itemBasics: {
     display: 'flex',
     flexDirection: 'column',
     flexWrap: "wrap",
-    //flexGrow: 0,    
+    //flexGrow: 0,
+    flexShrink: 1,       
   },
   languageBox:  {
     backgroundColor: "dodgerblue",

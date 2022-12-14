@@ -13,6 +13,8 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingTop: 10,
     //height: '100%',
+    //maxWidth: '100%',
+    //width: '100%', 
   },
 });
 

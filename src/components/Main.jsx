@@ -19,15 +19,12 @@ const styles = StyleSheet.create({
     maxWidth: 500,
     backgroundColor: "gray",
   },
-  text: {
-    //color: theme.colors.textPrimary,
-    //fontSize: theme.fontSizes.body,
+  text: {    
     fontFamily: Platform.select({
       android: theme.fonts.android,
       ios: theme.fonts.ios,
       default: theme.fonts.main,
-    }),
-    //fontWeight: theme.fontWeights.normal,
+    }),    
   },
 });
 
