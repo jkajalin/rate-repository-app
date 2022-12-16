@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-native';
 // eslint-disable-next-line no-unused-vars
 import { Button, Pressable, View } from 'react-native';
 import FormikTextInput from './FormikTextInput';
@@ -7,6 +8,12 @@ import Text from './Text';
 import * as yup from 'yup';
 import theme from '../theme';
 import useSignIn from '../hooks/useSignIn';
+
+// eslint-disable-next-line no-unused-vars
+//import AuthStorage from '../utils/authStorage';
+
+
+//const authStorage = new AuthStorage()
 
 const validationSchema = yup.object().shape({
   username: yup.string().required('Username is required'),
@@ -52,14 +59,22 @@ const LoginForm = ( { onSubmit, ...props } ) => (
 const SignIn = () => {
 
   const [signIn] = useSignIn();
+  const navigate = useNavigate();
+ 
 
   const onSubmit = async (values) => {
     const { username, password } = values;
-    console.log( 'loginSubmit: ', username, password)
+    
+    //console.log( 'loginSubmit: ', username, password)
 
     try {
       const { data } = await signIn({ username, password });
-      console.log(data);
+      //console.log(data);      
+      
+      if(data){
+        navigate('/')
+      }      
+            
     } catch (e) {
       console.log(e);
     }
