@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import { useState, useEffect } from 'react';
 
 import { useQuery } from '@apollo/client';
@@ -19,15 +18,12 @@ const useRepositories = () => {
   // eslint-disable-next-line no-unused-vars
   const fetchRepositories = async () => {
     //setLoading(true);
-    
+        
     //const response = await fetch('http://192.168.8.106:5000/api/repositories');
     //const json = await response.json();
-    console.log('Trying disabled Fetch API: ')
-    //console.log(json)
-    //setLoading(false);
-    //setLoading(loading);
-    //setRepositories(json);
-    //setRepositories(data);
+    console.log('Trying disabled Fetch API: ')    
+    //setLoading(false);   
+    //setRepositories(json);    
   };
   
   useEffect( () => {

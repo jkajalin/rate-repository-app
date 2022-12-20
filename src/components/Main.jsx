@@ -10,6 +10,7 @@ import SignIn from './SignIn';
 // eslint-disable-next-line no-unused-vars
 import Br from './Br';
 import theme from '../theme';
+import SignOut from './SignOut';
 
 const styles = StyleSheet.create({
   container: {
@@ -38,6 +39,7 @@ const Main = () => {
         <Route path="/" element={<RepositoryList />} exact />
         <Route path="/sign-in" element={<SignIn />} exact />
         <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/sign-out" element={<SignOut />} exact />
       </Routes>      
       
     </View>

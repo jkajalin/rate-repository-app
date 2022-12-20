@@ -4,6 +4,9 @@ import Heading from './Heading';
 import AppBarTab from './AppBarTab';
 import { Link } from "react-router-native";
 
+// eslint-disable-next-line no-unused-vars
+import useQueryMe from '../hooks/useQueryMe';
+
 const styles = StyleSheet.create({
   container: {
     paddingTop: Constants.statusBarHeight,
@@ -19,12 +22,18 @@ const styles = StyleSheet.create({
 });
 
 const AppBar = () => {
+  const user = useQueryMe();  
+  //console.log( 'userQuery:', user )
+  //console.log('me: ',me)
+  
   return <View style={styles.container} >
     {/* ... */}
       <ScrollView horizontal>
-        <AppBarTab><Link to="/"><Heading color="appBarText">Repositories </Heading></Link></AppBarTab>    
-        <AppBarTab><Link to="/sign-in"><Heading color="appBarText">Sign in</Heading></Link></AppBarTab>
-        
+        <AppBarTab><Link to="/"><Heading color="appBarText">Repositories </Heading></Link></AppBarTab>
+        { user ? <AppBarTab><Link to="/sign-out"><Heading color="appBarText">Sign out</Heading></Link></AppBarTab>
+        : <AppBarTab><Link to="/sign-in"><Heading color="appBarText">Sign in</Heading></Link></AppBarTab>
+        }    
+                
       </ScrollView>
     </View>;
 };

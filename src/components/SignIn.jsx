@@ -9,17 +9,10 @@ import * as yup from 'yup';
 import theme from '../theme';
 import useSignIn from '../hooks/useSignIn';
 
-// eslint-disable-next-line no-unused-vars
-//import AuthStorage from '../utils/authStorage';
-
-
-//const authStorage = new AuthStorage()
-
 const validationSchema = yup.object().shape({
   username: yup.string().required('Username is required'),
   password: yup.string().required('Password is required'),
 });
-
 
 // eslint-disable-next-line no-unused-vars
 const LoginForm = ( { onSubmit, ...props } ) => (
@@ -33,19 +26,13 @@ const LoginForm = ( { onSubmit, ...props } ) => (
     {({ handleChange, handleBlur, handleSubmit, values }) => (
       <View>
         <FormikTextInput
-          name='username'
-          //onChangeText={handleChange('username')}
-          //onBlur={handleBlur('username')}
-          //value={values.username}
+          name='username'          
           placeholder='Usename'
           style={ theme.textInputBox }          
         />
         <FormikTextInput
           name='password' 
           secureTextEntry={true}
-          //onChangeText={handleChange('pswd')}
-          //onBlur={handleBlur('pswd')}
-          //value={values.pswd}
           placeholder='Password'
           style={ theme.textInputBox }
         />
@@ -59,8 +46,7 @@ const LoginForm = ( { onSubmit, ...props } ) => (
 const SignIn = () => {
 
   const [signIn] = useSignIn();
-  const navigate = useNavigate();
- 
+  const navigate = useNavigate(); 
 
   const onSubmit = async (values) => {
     const { username, password } = values;
@@ -69,9 +55,11 @@ const SignIn = () => {
 
     try {
       const { data } = await signIn({ username, password });
-      //console.log(data);      
+      //console.log('login: ',data);      
       
-      if(data){
+      if(data && data.authenticate.accessToken){        
+        //console.log('SignIn token: ',data.authenticate.accessToken)
+        //console.log('navigate /')
         navigate('/')
       }      
             

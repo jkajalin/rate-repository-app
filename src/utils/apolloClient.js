@@ -7,8 +7,7 @@ const APOLLO_URI = Constants.manifest.extra.apolloUri
 
 console.log('connecting to', APOLLO_URI)
 
-const httpLink = createHttpLink({
-  // Replace the IP address part with your own IP address!
+const httpLink = createHttpLink({  
   uri: APOLLO_URI,  
 });
 
