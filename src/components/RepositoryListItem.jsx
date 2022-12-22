@@ -23,7 +23,7 @@ const RepositoryListItem = ( {item} ) => {
 
   return(
     
-    <View style={ styles.reposListItem } key={item.key}>
+    <View style={ styles.reposListItem } key={item.key} testID="repositoryItem">
       
       <Image style={ { width: 50, height: 50, marginRight: 20 } } source={{
           uri: `${item.ownerAvatarUrl}`,
