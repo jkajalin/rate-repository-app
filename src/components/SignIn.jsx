@@ -15,7 +15,7 @@ const validationSchema = yup.object().shape({
 });
 
 // eslint-disable-next-line no-unused-vars
-const LoginForm = ( { onSubmit, ...props } ) => (
+export const LoginForm = ( { onSubmit, ...props } ) => (
   <Formik
     initialValues={{ username: '', password: '' }}
     onSubmit={ onSubmit }
@@ -27,7 +27,7 @@ const LoginForm = ( { onSubmit, ...props } ) => (
       <View>
         <FormikTextInput
           name='username'          
-          placeholder='Usename'
+          placeholder='Username'
           style={ theme.textInputBox }          
         />
         <FormikTextInput

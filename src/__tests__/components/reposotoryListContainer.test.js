@@ -1,10 +1,7 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable jest/expect-expect */
 
 import { render, screen, within, getByText } from '@testing-library/react-native';
 import { RepositoryListContainer } from '../../components/RepositoryList';
-
-
 
 
 describe('RepositoryList', () => {
@@ -63,6 +60,8 @@ describe('RepositoryList', () => {
       
 
       expect( firstRepositoryItem ).toHaveTextContent('jaredpalmer/formik');
+      expect( firstRepositoryItem ).toHaveTextContent('TypeScript');
+      expect( firstRepositoryItem ).toHaveTextContent('Build forms in React');
       //expect( firstRepositoryItem ).toHaveTextContent('Forks');
 
       const forks01 = within(firstRepositoryItem).getByText( 'Forks', {exact: false} )
@@ -74,6 +73,10 @@ describe('RepositoryList', () => {
       expect( ratingA1 ).toHaveTextContent('88')      
       expect( startgazers1 ).toHaveTextContent('21.8K')
       expect( reviews1 ).toHaveTextContent('3')
+
+      expect( secondRepositoryItem ).toHaveTextContent('async-library/react-async');
+      expect( secondRepositoryItem ).toHaveTextContent('JavaScript');
+      expect( secondRepositoryItem ).toHaveTextContent('Flexible promise-based');
 
       const forks02 = within(secondRepositoryItem).getByText( 'Forks', {exact: false} )
       const ratingA2 = within(secondRepositoryItem).getByText( 'Rating', {exact: false} )
