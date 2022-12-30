@@ -1,12 +1,19 @@
 import { useParams } from "react-router";
-import { Text } from "react-native";
+// eslint-disable-next-line no-unused-vars
+import { Text, StyleSheet, View } from "react-native";
+import ReviewsContainer from "./ReviewContainer";
 
 import { useQuery } from '@apollo/client';
 import { GET_REPOSITORY_BY_ID } from "../graphql/queries";
-// eslint-disable-next-line no-unused-vars
-import RepositoryListItem from "./RepositoryListItem";
+
 import SingleRepositoryListItem from "./SingleRepositoryListItem";
-//import { useEffect } from "react";
+
+// eslint-disable-next-line no-unused-vars
+const styles = StyleSheet.create({
+  separator: {
+    height: 10,
+  },  
+});
 
 const SingleRepositoryListItemView = () => {
   
@@ -27,7 +34,8 @@ const SingleRepositoryListItemView = () => {
 
   /*
   if(data){
-    console.log( data )
+    //console.log( data )
+    //console.log( data.repository.reviews )
   }
   */
 
@@ -35,7 +43,8 @@ const SingleRepositoryListItemView = () => {
     <>
     {/* <Text>{id}</Text> */}
     { !data.repository? null : <SingleRepositoryListItem item={data.repository} showGitBtn={true} /> }
-   
+    
+    <ReviewsContainer reviews={ data.repository.reviews }/>
     </>
   )
 }

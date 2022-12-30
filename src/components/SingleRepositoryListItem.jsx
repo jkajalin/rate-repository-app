@@ -12,7 +12,7 @@ import RepositoryListItem from './RepositoryListItem';
 const styles = StyleSheet.create({
   singleReposListItem: {
     display: 'flex',
-    //flexWrap: "wrap",
+    //flexWrap: "wrap", // this setting drops all "numerals" out of reposListItem box 
     backgroundColor: 'white',
   },
   buttonStyles:{

@@ -7,7 +7,7 @@ const theme = {
     appBarText: '#fff',
     errorText: '#d73a4a',
     borderColor: '#586069',
-    btnColor: "dodgerblue",
+    btnColor: 'dodgerblue',
   },
   fontSizes: {
     body: 14,
@@ -117,7 +117,7 @@ const theme = {
   buttonBox: {
     display: 'flex',
     padding: 7,
-    backgroundColor: "dodgerblue",
+    backgroundColor: 'dodgerblue',
     borderRadius: 4,    
     alignItems: 'center',
     marginTop: 10,
@@ -125,6 +125,22 @@ const theme = {
   buttonText: {
     fontWeight: 'bold',
     color: 'white',
+  },
+  roundedRating: {
+    display: 'flex',
+    width: 62,
+    height: 62,
+    color: 'dodgerblue',
+    border: 'solid',
+    borderRadius: 31,
+    borderColor: 'dodgerblue',
+    padding: 8,
+    alignItems: 'center',
+    justifyContent: 'center',          
+  },
+  reviewDetail: {
+    display: 'flex',
+    flexWrap: "wrap",
   } 
 };
 
