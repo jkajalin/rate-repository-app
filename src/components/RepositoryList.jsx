@@ -1,6 +1,8 @@
 import { FlatList, View, StyleSheet } from 'react-native';
+// eslint-disable-next-line no-unused-vars
 import RepositoryListItem from './RepositoryListItem';
 import useRepositories from '../hooks/useRepositories';
+import LinkedRepositoryListItem from './LinkedRepositoryListItem';
 
 const styles = StyleSheet.create({
   separator: {
@@ -22,7 +24,7 @@ export const RepositoryListContainer = ( { repositories } ) => {
       data={repositoryNodes}
       ItemSeparatorComponent={ItemSeparator}      
       
-      renderItem={RepositoryListItem}
+      renderItem={LinkedRepositoryListItem}
       keyExtractor={item => item.id}
       // other props
     />

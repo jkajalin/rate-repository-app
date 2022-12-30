@@ -7,6 +7,7 @@ const theme = {
     appBarText: '#fff',
     errorText: '#d73a4a',
     borderColor: '#586069',
+    btnColor: "dodgerblue",
   },
   fontSizes: {
     body: 14,
