@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     //height: '100%',
     //maxWidth: '100%',
-    //width: '100%', 
+    width: '100%', 
   },
 });
 

@@ -25,7 +25,7 @@ const theme = {
   },
   avatarImg: {
     width: '50',
-    height: '50',
+    height: '50',    
   },
   numerals: {
     display: 'flex',
@@ -64,30 +64,35 @@ const theme = {
   },
   flexTitle: {
     display: 'flex',
-    flexWrap: 'wrap',
+    //flexWrap: 'wrap',
     flexShrink: 1,
+    //width: '100%',
   },
   titleMain: {
     flexGrow: 1,
     fontSize: 32,
     fontWeight: 'bold',
+    //flexWrap: 'wrap',
+    flexShrink: 1,
+    //width: '100%', // needed to keep thing wrapping on mobile // drops text below image on mobile
   },
   titleNote: {
     display: 'flex',    
     color: '#586069',
     fontSize: 16,    
-    flexWrap: 'wrap',
+    //flexWrap: 'wrap',
     flexShrink: 1,
     flexGrow: 1,
-    //width: '90%',
+    //width: '100%',
     //padding: 5,     
   },
   itemBasics: {
     display: 'flex',
     flexDirection: 'column',
-    flexWrap: "wrap",
+    //flexWrap: "wrap",
     //flexGrow: 0,
-    flexShrink: 1,       
+    flexShrink: 1,
+    width: '78%',    // drops title below image on web on over ~84%, works on mobile as intended at 78%    
   },
   languageBox:  {
     backgroundColor: "dodgerblue",
@@ -95,7 +100,7 @@ const theme = {
     padding: 7,
     borderRadius: 8,
     //flexGrow: 0, // tavoitellaan että objekti ei veisi tilaa enempää kuin tarvitsee. faail
-    alignSelf: 'flex-start', // defines box to take only neede space    
+    alignSelf: 'flex-start', // defines box to take only neede space ??    
     fontWeight: 'bold',
     color: 'white',
   },
@@ -126,21 +131,37 @@ const theme = {
     fontWeight: 'bold',
     color: 'white',
   },
+  reviewView: {
+    display: 'flex',
+    //width: '100%',
+    flexDirection: 'row',
+    flexWrap: "wrap",
+    color: 'black', 
+    backgroundColor: 'white', 
+    padding: 10,
+    //width: '100%',
+    //flexShrink: 1,
+  },
   roundedRating: {
     display: 'flex',
     width: 62,
     height: 62,
     color: 'dodgerblue',
     border: 'solid',
+    borderWidth: 3,
     borderRadius: 31,
     borderColor: 'dodgerblue',
     padding: 8,
-    alignItems: 'center',
+    marginRight: 10,
+    marginBottom: 10,     
+    //alignItems: 'center',
     justifyContent: 'center',          
   },
   reviewDetail: {
-    display: 'flex',
-    flexWrap: "wrap",
+    display: 'flex',    
+    //flexWrap: "wrap", // disabling weap makes things loo right on mobile
+    width: '78%', // making text to fit near rating on web //
+    flexShrink: 1, // no effect on mobile
   } 
 };
 

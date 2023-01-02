@@ -16,7 +16,7 @@ const ReviewItem = ( {review} ) => {
   //console.log( review.createdAt )
 
   return(
-    <View style={ { color: 'black', backgroundColor: 'white', padding: 5 } } >
+    <View style={ theme.reviewView } >
       <Text style={ theme.roundedRating } fontSize={'heading'}>{ review.rating }</Text>
       <View style={ theme.reviewDetail }>
         <Text fontWeight={'bold'} >{ review.user.username }</Text>
