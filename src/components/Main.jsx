@@ -12,6 +12,7 @@ import Br from './Br';
 import theme from '../theme';
 import SignOut from './SignOut';
 import SingleRepositoryListItemView from './SingleRepositoryView';
+import NewReviewView from './NewReviewView';
 
 const styles = StyleSheet.create({
   container: {
@@ -42,6 +43,7 @@ const Main = () => {
         <Route path="*" element={<Navigate to="/" replace />} />
         <Route path="/sign-out" element={<SignOut />} exact />
         <Route path="/repositories/:id" element={<SingleRepositoryListItemView />} exact/>
+        <Route path="/create-review" element={<NewReviewView />} exact />
       </Routes>      
       
     </View>

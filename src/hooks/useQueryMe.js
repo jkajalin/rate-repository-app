@@ -20,7 +20,8 @@ const useQueryMe = () => {
       //console.log('graphql: ')
       //console.log( data.me )
       if (me !== data.me ){
-        setMe( data.me )
+        setMe( data.me )        
+        
       }  
       
     }

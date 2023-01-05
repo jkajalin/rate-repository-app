@@ -1,4 +1,5 @@
-import { View, StyleSheet, ScrollView } from 'react-native';
+// eslint-disable-next-line no-unused-vars
+import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import Constants from 'expo-constants';
 import Heading from './Heading';
 import AppBarTab from './AppBarTab';
@@ -30,7 +31,11 @@ const AppBar = () => {
     {/* ... */}
       <ScrollView horizontal>
         <AppBarTab><Link to="/"><Heading color="appBarText">Repositories </Heading></Link></AppBarTab>
-        { user ? <AppBarTab><Link to="/sign-out"><Heading color="appBarText">Sign out</Heading></Link></AppBarTab>
+        { user ? <>          
+          <AppBarTab><Link to="/create-review"><Heading color="appBarText">Create a review</Heading></Link></AppBarTab>
+          <AppBarTab><Link to="/sign-out"><Heading color="appBarText">Sign out</Heading></Link></AppBarTab>          
+          <AppBarTab><Heading color="appBarText">Hello {user.username}</Heading></AppBarTab>
+        </>        
         : <AppBarTab><Link to="/sign-in"><Heading color="appBarText">Sign in</Heading></Link></AppBarTab>
         }    
                 
