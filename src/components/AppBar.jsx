@@ -36,7 +36,11 @@ const AppBar = () => {
           <AppBarTab><Link to="/sign-out"><Heading color="appBarText">Sign out</Heading></Link></AppBarTab>          
           <AppBarTab><Heading color="appBarText">Hello {user.username}</Heading></AppBarTab>
         </>        
-        : <AppBarTab><Link to="/sign-in"><Heading color="appBarText">Sign in</Heading></Link></AppBarTab>
+        : <>
+          <AppBarTab><Link to="/sign-in"><Heading color="appBarText">Sign in</Heading></Link></AppBarTab>
+          <AppBarTab><Link to="/sign-up"><Heading color="appBarText">Sign up</Heading></Link></AppBarTab>
+        </>
+        
         }    
                 
       </ScrollView>
