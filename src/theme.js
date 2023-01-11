@@ -162,7 +162,25 @@ const theme = {
     //flexWrap: "wrap", // disabling weap makes things loo right on mobile
     width: '78%', // making text to fit near rating on web //
     flexShrink: 1, // no effect on mobile
-  } 
+  },  
+  sortBtn: { 
+    height: 50, 
+    padding: 13, 
+    margin: 10, 
+    borderColor: 'black', 
+    borderWidth: 2, 
+    borderRadius: 10, 
+  },
+  shadow: {
+    shadowColor: "black",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  }
 };
 
 export default theme;

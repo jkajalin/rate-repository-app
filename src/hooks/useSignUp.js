@@ -14,7 +14,7 @@ const useSignUp = () => {
   const createUser = async ( { username, password } ) => {
     console.log('useCreateUser', username, password)
     
-    const { data, error, loading } = await mutate({ variables: { user: { username, password } } })    
+    const { data, error, loading } = await mutate( { variables: { user: { username, password } } })    
         
     if(!loading && error){
       console.log(error)

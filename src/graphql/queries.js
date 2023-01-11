@@ -37,4 +37,18 @@ export const GET_REPOSITORY_BY_ID = gql`
   ${REVIEWS}
 `;
 
+export const GET_REPOSITORIES_BY_ORDER = gql`
+  query allRepositories($orderBy: AllRepositoriesOrderBy, $orderDirection: OrderDirection){
+    repositories(orderBy: $orderBy, orderDirection: $orderDirection){
+      totalCount
+      edges {
+        node {
+          ...RepositorykDetails
+        }        
+      }
+      
+    }
+  }
+  ${REPOSITORY_DETAILS}
+`;
 // other queries...
