@@ -1,24 +1,23 @@
 import { FlatList, View, StyleSheet, Pressable, Text, Modal } from 'react-native';
 import { useState } from 'react';
-// eslint-disable-next-line no-unused-vars
-import useRepositories from '../hooks/useRepositories';
+import { useDebounce } from 'use-debounce';
+
 import useSortedRepositories from '../hooks/useSortedRepositories';
+import useFilteredRepositories from '../hooks/useFilteredRepositories';
+
 import LinkedRepositoryListItem from './LinkedRepositoryListItem';
 import {Picker} from '@react-native-picker/picker';
-// eslint-disable-next-line no-unused-vars
-import AppBarTab from './AppBarTab';
-import theme from '../theme';
+import { Searchbar } from 'react-native-paper';
 
+import theme from '../theme';
 
 const styles = StyleSheet.create({
   separator: {
     height: 10,
   },
   sortSelect: {
-    //height: 50,
     backgroundColor: "gray",
-    padding: 10,
-    //display: 'flex',      
+    padding: 10,          
   },
   sortSelectWrapper: {
     //display: 'flex',
@@ -29,11 +28,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     //alignItems: "center", // muuttaa ios näkymän palkiksi
-    //marginTop: 22,
-    //height: 400,
-    maxWidth: 480,
-    //maxHeight: 300,
-    ///padding: 10,        
+    maxWidth: 480,          
   },
   modalView: {
     height: 100, // web puolella selkeämmin näkyville
@@ -52,8 +47,8 @@ const styles = StyleSheet.create({
   },
   sortBtn: {
     height: theme.sortBtn.height, 
-    padding: theme.sortBtn.padding, 
-    margin: theme.sortBtn.margin, 
+    padding: theme.sortBtn.padding,     
+    marginVertical: theme.sortBtn.marginVertical,
     borderColor: theme.sortBtn.borderColor, 
     borderWidth: theme.sortBtn.borderWidth, 
     borderRadius: theme.sortBtn.borderRadius,
@@ -122,10 +117,19 @@ const sortEnum = {
 const RepositoryList = () => {
 
   const [modalVisible, setModalVisible] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [debouncedQuery] = useDebounce(searchQuery, 1000)
   
   const [ sortOrder, setSortOrder ] = useState( { orderBy: "CREATED_AT", orderDirection: "DESC" } )
-  //const { repositories } = useRepositories()
-  const { repositories } = useSortedRepositories( sortOrder )
+ 
+  let { repositories } = useSortedRepositories( sortOrder )
+ 
+  const filteredRepositories  = useFilteredRepositories( debouncedQuery )
+
+  const onChangeSearch = keywords => {
+    //console.log('keywords: ',keywords) 
+    setSearchQuery(keywords)
+  }
   
   //console.log( 'sort order:', sortOrder )
   let sortLabel = ''
@@ -141,8 +145,20 @@ const RepositoryList = () => {
   }
   //console.log(sortLabel)
 
+  if( debouncedQuery && !filteredRepositories.loading){
+    //console.log('filtered-data:', filteredRepositories )
+    repositories = filteredRepositories.repositories
+  }
+
+  
+
   return <>
     <View style={styles.sortSelectWrapper}>
+      <Searchbar
+        placeholder="Search"
+        onChangeText={ onChangeSearch }
+        value={searchQuery}
+      />
       <Pressable onPress={ () => setModalVisible(true) }  style={ styles.sortBtn }><Text>&#9660; {sortLabel}</Text></Pressable>
       <Modal
         animationType="slide"

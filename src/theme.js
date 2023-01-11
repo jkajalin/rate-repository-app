@@ -165,11 +165,11 @@ const theme = {
   },  
   sortBtn: { 
     height: 50, 
-    padding: 13, 
-    margin: 10, 
+    padding: 13,    
+    marginVertical: 10, 
     borderColor: 'black', 
     borderWidth: 2, 
-    borderRadius: 10, 
+    borderRadius: 8, 
   },
   shadow: {
     shadowColor: "black",

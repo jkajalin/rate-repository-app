@@ -51,4 +51,33 @@ export const GET_REPOSITORIES_BY_ORDER = gql`
   }
   ${REPOSITORY_DETAILS}
 `;
-// other queries...
+
+export const GET_FILTERED_REPOSITORIES = gql`
+  query filteredRepositories($searchKeyword: String) {
+    repositories(searchKeyword: $searchKeyword){
+      totalCount
+      edges {
+        node {
+          ...RepositorykDetails
+        }        
+      }
+      
+    }
+  }
+  ${REPOSITORY_DETAILS}
+`;
+
+export const GET_REPOSITORIES_BY_ARGS = gql`
+  query getRepositoriesBy{
+    repositories{
+      totalCount
+      edges {
+        node {
+          ...RepositorykDetails
+        }        
+      }
+      
+    }
+  }
+  ${REPOSITORY_DETAILS}
+`;
