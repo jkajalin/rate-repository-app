@@ -3,8 +3,9 @@ import { useParams } from "react-router";
 import { Text, StyleSheet, View } from "react-native";
 import ReviewsContainer from "./ReviewContainer";
 
-import { useQuery } from '@apollo/client';
-import { GET_REPOSITORY_BY_ID } from "../graphql/queries";
+//import { useQuery } from '@apollo/client';
+//import { GET_REPOSITORY_BY_ID } from "../graphql/queries";
+import useRepositoryById from "../hooks/useRepositoryById";
 
 import SingleRepositoryListItem from "./SingleRepositoryListItem";
 
@@ -18,17 +19,18 @@ const styles = StyleSheet.create({
 const SingleRepositoryListItemView = () => {
   
   const { id } = useParams();
+  const { repository, loading, fetchMore } = useRepositoryById( id )
 
-  const { data, error, loading } = useQuery(GET_REPOSITORY_BY_ID, {
-    variables: { "repositoryId": id },
+  /*
+  const { data, error, loading, fetchMore, ...result } = useQuery(GET_REPOSITORY_BY_ID, {
+    variables: { repositoryId: id, first:2 },
     fetchPolicy: 'cache-and-network',
   });
+  */
   if(loading){
     return <><Text>Loading...</Text></>
   }
-  if(error){
-    console.log(error)
-  }   
+  
   
   console.log( id )
 
@@ -37,14 +39,19 @@ const SingleRepositoryListItemView = () => {
     //console.log( data )
     //console.log( data.repository.reviews )
   }
-  */
+  */  
+
+  const onEndReach = () => {
+    console.log('fetchMore() until end...');
+    fetchMore()
+  };
 
   return (
     <>
-    {/* <Text>{id}</Text> */}
-    { !data.repository? null : <SingleRepositoryListItem item={data.repository} showGitBtn={true} /> }
+    {/* { !data.repository? null : <SingleRepositoryListItem item={data.repository} showGitBtn={true} /> } */}
+    { !repository? null : <SingleRepositoryListItem item={repository} showGitBtn={true} /> }
     
-    <ReviewsContainer reviews={ data.repository.reviews }/>
+    <ReviewsContainer reviews={ repository.reviews } onEndReach={onEndReach} />
     </>
   )
 }

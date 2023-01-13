@@ -16,7 +16,7 @@ export const REPOSITORY_DETAILS = gql`
 
 export const REVIEWS = gql`
   fragment Reviews on Repository {
-    reviews {
+    reviews(first: $first, after: $after) {
       edges {
         node {
           id
@@ -28,7 +28,23 @@ export const REVIEWS = gql`
             username
           }
         }
+        cursor
       }
+      pageInfo {
+        endCursor
+        startCursor
+        hasNextPage
+      }
+    }
+  }
+`
+
+export const PAGE_INFO = gql`
+  fragment PageInfo on Repository {
+    pageInfo {
+      endCursor
+      startCursor
+      hasNextPage
     }
   }
 `

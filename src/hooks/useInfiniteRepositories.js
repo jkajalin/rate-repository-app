@@ -4,19 +4,12 @@ import { useQuery } from '@apollo/client';
 import { GET_REPOSITORIES_BY_ORDER } from '../graphql/queries';
 
 // useRepositories do not like to be async, if async, result: fail. At least if there no await around.
-// ( sortOrder, variables )
-const useSortedRepositories = ( sortOrder, variables ) => {
+const useInfiniteRepositories = ( variables ) => {
   //const [repositories, setRepositories] = useState();
-  
-  // { data, error, loading, fetchMore, ...result }
-  const { data, error, loading, fetchMore, ...result } = useQuery(GET_REPOSITORIES_BY_ORDER, {
-    variables: {
-      orderBy: sortOrder.orderBy,
-      orderDirection: sortOrder.orderDirection,
-      first: variables.first,
-    },
-    fetchPolicy: 'cache-and-network',
     
+  const { data, error, loading, fetchMore, ...result } = useQuery(GET_REPOSITORIES_BY_ORDER, {
+    variables,
+    fetchPolicy: 'cache-and-network',    
   });
   if(error){
     console.log(error)
@@ -46,17 +39,17 @@ const useSortedRepositories = ( sortOrder, variables ) => {
     fetchMore({
       variables: {
         after: data.repositories.pageInfo.endCursor,
-        orderBy: sortOrder.orderBy,
-        orderDirection: sortOrder.orderDirection,        
-        first: variables.first,              
+        ...variables              
       },
-    });          
-    // setRepositories( data.repositories );            
+    });     
   };
   
-  
-  // { repositories, loading, fetchMore: handleFetchMore, ...result }
-  return { repositories: data?.repositories, loading, fetchMore: handleFetchMore, ...result };  
+  return {
+    repositories: data?.repositories,
+    fetchMore: handleFetchMore,
+    loading,
+    ...result,
+  };  
 };
 
-export default useSortedRepositories;
+export default useInfiniteRepositories;

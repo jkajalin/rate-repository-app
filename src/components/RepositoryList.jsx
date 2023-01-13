@@ -87,7 +87,8 @@ const PickerWrapper = () => {
   ) 
 }
 */
-export const RepositoryListContainer = ( { repositories } ) => {
+// eslint-disable-next-line no-unused-vars
+export const RepositoryListContainer = ( { repositories, onEndReach, ...props } ) => {
 
   // Get the nodes from the edges array
   const repositoryNodes = repositories
@@ -101,7 +102,9 @@ export const RepositoryListContainer = ( { repositories } ) => {
       ItemSeparatorComponent={ItemSeparator} 
       renderItem={LinkedRepositoryListItem}
       keyExtractor={item => item.id}
-      // other props
+      onEndReached={onEndReach}
+      onEndReachedThreshold={0.5}
+      
     />
   );
 }
@@ -121,8 +124,8 @@ const RepositoryList = () => {
   const [debouncedQuery] = useDebounce(searchQuery, 1000)
   
   const [ sortOrder, setSortOrder ] = useState( { orderBy: "CREATED_AT", orderDirection: "DESC" } )
- 
-  let { repositories } = useSortedRepositories( sortOrder )
+  
+  let { repositories, fetchMore } = useSortedRepositories( sortOrder, {first: 2} )
  
   const filteredRepositories  = useFilteredRepositories( debouncedQuery )
 
@@ -150,7 +153,10 @@ const RepositoryList = () => {
     repositories = filteredRepositories.repositories
   }
 
-  
+  const onEndReach = () => {
+    console.log('fetchMore() until end');
+    fetchMore();
+  };
 
   return <>
     <View style={styles.sortSelectWrapper}>
@@ -190,7 +196,7 @@ const RepositoryList = () => {
         
       
     </View>
-    <RepositoryListContainer repositories={repositories} />
+    <RepositoryListContainer repositories={repositories} onEndReach={onEndReach} />
   </>
 };
 
