@@ -126,6 +126,17 @@ const theme = {
     borderRadius: 4,    
     alignItems: 'center',
     marginTop: 10,
+    flexGrow: 1,
+  },
+  redButtonBox: {
+    display: 'flex',
+    padding: 7,
+    backgroundColor: 'red',
+    borderRadius: 4,    
+    alignItems: 'center',
+    marginTop: 10,
+    flexGrow: 1,
+    marginLeft: 10,
   },
   buttonText: {
     fontWeight: 'bold',

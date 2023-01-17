@@ -63,31 +63,6 @@ const styles = StyleSheet.create({
 const ItemSeparator = () => <View style={styles.separator} />;
 
 // eslint-disable-next-line no-unused-vars
-/*
-const PickerWrapper = () => {
-  
-  const [ sortOrder, setSortOrder ] = useState()
-
-  return(
-    <View >
-          
-      <Picker 
-        selectedValue={sortOrder}
-        // eslint-disable-next-line no-unused-vars
-        onValueChange={ ( itemValue, itemIndex ) => 
-          setSortOrder(itemValue)
-        }  
-      >
-        <Picker.Item label='Latest repositories' value='CREATED_AT'/>
-        <Picker.Item label='Highest rated' value='RATING_AVERAGE'/>
-        <Picker.Item label='Lowest rated' value='LOWEST_RATED'/>  
-      </Picker>
-      
-    </View>
-  ) 
-}
-*/
-// eslint-disable-next-line no-unused-vars
 export const RepositoryListContainer = ( { repositories, onEndReach, ...props } ) => {
 
   // Get the nodes from the edges array
@@ -154,7 +129,7 @@ const RepositoryList = () => {
   }
 
   const onEndReach = () => {
-    console.log('fetchMore() until end');
+    //console.log('fetchMore() until end');
     fetchMore();
   };
 

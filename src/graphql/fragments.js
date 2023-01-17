@@ -39,6 +39,19 @@ export const REVIEWS = gql`
   }
 `
 
+export const REVIEWS_FIELDS = gql`
+  fragment ReviewFields on Review {
+    id
+    text
+    rating
+    createdAt
+    user {
+      id
+      username
+    }
+  }
+`
+
 export const PAGE_INFO = gql`
   fragment PageInfo on Repository {
     pageInfo {
@@ -46,5 +59,13 @@ export const PAGE_INFO = gql`
       startCursor
       hasNextPage
     }
+  }
+`
+
+export const PAGE_INFO_FIELDS = gql`
+  fragment PageInfoFields on PageInfo{    
+    endCursor
+    startCursor
+    hasNextPage    
   }
 `

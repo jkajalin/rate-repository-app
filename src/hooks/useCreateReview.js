@@ -9,7 +9,9 @@ const useCreateReview = () => {
   const createReview = async ( { ownerName, repositoryName, rating, text } ) => {
     console.log('useCreateReview, owner, repositoryName, rating: ', ownerName, repositoryName, rating)
     
-    const { data, error, loading } = await mutate({ variables: { review: { ownerName, repositoryName, "rating": Number(rating), text } } })
+    const { data, error, loading } = await mutate({ 
+      variables: { review: { ownerName, repositoryName, "rating": Number(rating), text } } 
+    })
     //const {data} = await mutate({ variables: { review: { ownerName, repositoryName, "rating": Number(rating), text } } })
         
     if(!loading && error){

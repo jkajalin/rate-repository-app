@@ -1,7 +1,5 @@
-// eslint-disable-next-line no-unused-vars
-import { Image, View, Text, StyleSheet, Button, Pressable }from 'react-native';
+import { View, Text, StyleSheet, Pressable }from 'react-native';
 import * as Linking from 'expo-linking';
-// eslint-disable-next-line no-unused-vars
 import theme from '../theme';
 import RepositoryListItem from './RepositoryListItem';
 
@@ -41,9 +39,7 @@ const SingleRepositoryListItem = ( {item, showGitBtn} ) => {
       { !showGitBtn? null : 
       <>
         <Pressable onPress={ () => { Linking.openURL(item.url) } } style={ styles.buttonStyles }><Text style={styles.buttonText} >Open in GitHub</Text></Pressable><Text>{item.url}</Text>
-        {/*
-        <Button style={ styles.buttonStyles }  onPress={ ()=>{} } title="Open in GitHub" />
-        */}
+        
       </> 
       }      
     </View>

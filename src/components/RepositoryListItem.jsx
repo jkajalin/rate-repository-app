@@ -1,11 +1,8 @@
-// eslint-disable-next-line no-unused-vars
-import { Image, View, Text, StyleSheet, Pressable }from 'react-native';
+import { Image, View, Text, StyleSheet }from 'react-native';
 import theme from '../theme';
 import NumeralListItem from './NumeralListItem';
-// eslint-disable-next-line no-unused-vars
-import { useNavigate } from 'react-router-native';
-// eslint-disable-next-line no-unused-vars
-import { Link } from "react-router-native";
+
+
 //import Text from './Text';
 
 // most styling defined in theme.js
@@ -26,19 +23,8 @@ const styles = StyleSheet.create({
 
 const RepositoryListItem = ( { item } ) => {
 
-  //const navigate = useNavigate(); 
-
-  /*
-  const onPressHandler = () => {
-    navigate(`repositories/${item.key}`)
-  }
-  */  
-
   return(
-    /*
-    <Pressable>
-      <Link to={`/repositories/${item.id}`}>
-      */
+   
       <View style={ styles.reposListItem } key={item.key} testID="repositoryItem">
         
         <Image style={ { width: 50, height: 50, marginRight: 20 } } source={{
@@ -59,14 +45,8 @@ const RepositoryListItem = ( { item } ) => {
           <Text style={ theme.nmrlItem} >Rating <Text style={theme.rounded}>{item.ratingAverage}</Text></Text>
           <Text style={ theme.nmrlItem} >Reviews <NumeralListItem number={item.reviewCount}  /></Text>
         </View>
-            
         
-      </View>
-
-      /*
-      </Link>
-    </Pressable>
-    */
+      </View>     
   );
 }
 

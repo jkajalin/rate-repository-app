@@ -1,7 +1,4 @@
 import React from 'react';
-// eslint-disable-next-line no-unused-vars
-import { useNavigate } from 'react-router-native';
-
 import { Pressable, View } from 'react-native';
 import FormikTextInput from './FormikTextInput';
 import { Formik } from 'formik';
@@ -9,8 +6,6 @@ import Text from './Text';
 import * as yup from 'yup';
 import theme from '../theme';
 import useSignUp from '../hooks/useSignUp';
-// eslint-disable-next-line no-unused-vars
-import useSignIn from '../hooks/useSignIn';
 
 const validationSchema = yup.object().shape({
   username: yup.string().required('Username is required'),
@@ -53,7 +48,7 @@ export const SignUpForm = ( { onSubmit, ...props } ) => (
 );
 
 const SignUp = () => {
-  // to be implemented
+  
   const [signUp] = useSignUp(); 
   
   //const navigate = useNavigate(); 

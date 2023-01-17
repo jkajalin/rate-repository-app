@@ -3,10 +3,11 @@ import { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_ME } from '../graphql/queries';
 
-const useQueryMe = () => {
+const useQueryMe = ( variables ) => {
   const [me, setMe] = useState( null );
 
-  const { data, error, loading } = useQuery(GET_ME, {
+  const { data, error, loading, refetch } = useQuery(GET_ME, {
+    variables,
     fetchPolicy: 'cache-and-network',    
   });
   if(error){
@@ -18,18 +19,16 @@ const useQueryMe = () => {
     if(!loading && data){    
       
       //console.log('graphql: ')
-      //console.log( data.me )
-      if (me !== data.me ){
-        setMe( data.me )        
-        
-      }  
       
+      if ( me !== data.me ){
+        //console.log('setMe, useQueryMe', data.me )
+        setMe( data.me ) 
+      }      
     }
 
-  }, [data]);
+  }, [data, variables]);
   
-  
-  return me;
+  return [me, refetch];
 }
 
 export default useQueryMe;

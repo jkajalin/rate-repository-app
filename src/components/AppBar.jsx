@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
 });
 
 const AppBar = () => {
-  const user = useQueryMe();  
+  
+  const [user] = useQueryMe( );  
   //console.log( 'userQuery:', user )
   //console.log('me: ',me)
   
@@ -33,7 +34,8 @@ const AppBar = () => {
         <AppBarTab><Link to="/"><Heading color="appBarText">Repositories </Heading></Link></AppBarTab>
         { user ? <>          
           <AppBarTab><Link to="/create-review"><Heading color="appBarText">Create a review</Heading></Link></AppBarTab>
-          <AppBarTab><Link to="/sign-out"><Heading color="appBarText">Sign out</Heading></Link></AppBarTab>          
+          <AppBarTab><Link to="/myreviews"><Heading color="appBarText">MyReviews</Heading></Link></AppBarTab>
+          <AppBarTab><Link to="/sign-out"><Heading color="appBarText">Sign out</Heading></Link></AppBarTab>                   
           <AppBarTab><Heading color="appBarText">Hello {user.username}</Heading></AppBarTab>
         </>        
         : <>

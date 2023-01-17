@@ -2,18 +2,17 @@ import { StyleSheet, View, Platform } from 'react-native';
 import { Route, Routes, Navigate } from 'react-router-native';
 import AppBar from './AppBar';
 import RepositoryList from './RepositoryList';
-// eslint-disable-next-line no-unused-vars
-import SubHeading from './Subheading';
+
 // eslint-disable-next-line no-unused-vars
 import Text from './Text';
 import SignIn from './SignIn';
-// eslint-disable-next-line no-unused-vars
-import Br from './Br';
+
 import theme from '../theme';
 import SignOut from './SignOut';
 import SingleRepositoryListItemView from './SingleRepositoryView';
 import NewReviewView from './NewReviewView';
 import SignUp from './SignUpView';
+import MyReviewsView from './MyReviewsView';
 
 const styles = StyleSheet.create({
   container: {
@@ -46,6 +45,7 @@ const Main = () => {
         <Route path="/sign-out" element={<SignOut />} exact />
         <Route path="/repositories/:id" element={<SingleRepositoryListItemView />} exact/>
         <Route path="/create-review" element={<NewReviewView />} exact />
+        <Route path="/myreviews" element={<MyReviewsView />} exact />
       </Routes>      
       
     </View>

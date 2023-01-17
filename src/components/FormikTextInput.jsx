@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
   },
 });
 
-// eslint-disable-next-line no-unused-vars
 const FormikTextInput = ({ name, style, ...props }) => {
   const [field, meta, helpers] = useField(name);
   const showError = meta.touched && meta.error;

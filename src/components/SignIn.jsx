@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-native';
-// eslint-disable-next-line no-unused-vars
-import { Button, Pressable, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import FormikTextInput from './FormikTextInput';
 import { Formik } from 'formik';
 import Text from './Text';
@@ -36,7 +35,7 @@ export const LoginForm = ( { onSubmit, ...props } ) => (
           placeholder='Password'
           style={ theme.textInputBox }
         />
-        {/* <Button onPress={handleSubmit} title="Sign in" /> */}
+        
         <Pressable onPress={handleSubmit} style={ theme.buttonBox } ><Text style={ theme.buttonText } >Sign in</Text></Pressable>
       </View>
     )}

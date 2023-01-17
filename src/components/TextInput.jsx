@@ -1,7 +1,4 @@
-import { TextInput as NativeTextInput, StyleSheet } from 'react-native';
-
-// eslint-disable-next-line no-unused-vars
-const styles = StyleSheet.create({});
+import { TextInput as NativeTextInput } from 'react-native';
 
 // eslint-disable-next-line no-unused-vars
 const TextInput = ({ style, error, ...props }) => {
